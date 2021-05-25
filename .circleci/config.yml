@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Run unit tests
           command: |
-            pytest
+            pytest src
       - store_test_results:
           path: test-reports
       - store_artifacts:
