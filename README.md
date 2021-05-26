@@ -64,4 +64,27 @@ This file contains that confiurations of CircleCi
 
 
 
+## Running using pytest:
+
+
+When running using pytest, the testing results will be printed in this directory:
+
+- **`test-reports/junit.html`**
+- **`test-reports/pytest_report.html`**
+
+
+
+In CircleCI, they will be artifacts.
+
+
+
+
+
+
+
+
+
+
+
+
 
