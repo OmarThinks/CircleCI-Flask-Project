@@ -12,14 +12,20 @@
 
 
 ### 1) requirements.txt:
-This file has all the requirements to run the application
+This file has all the requirements to run the application  
+Flask, pytest, and pytest-html
 
 
+### 2) src/app.py:
+This file contains the flask application  
+To run this file using CLI type this command:
 
+<b>
 
-### src/app.py:
-This file contains the flask application, that will
-
+```bash
+python app.py
+```
+</b>
 
 
 
