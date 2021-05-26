@@ -4,10 +4,23 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/OmarThinks/CircleCI-hello-world/master/LICENSE) 
 
 
-# CircleCI-hello-world
+# CircleCI-Flask-Project
+
+
+
+## Files:
+
+
+### 1) requirements.txt:
+This file has all the requirements to run the application
+
+
+
+
+### src/app.py:
+This file contains the flask application, that will
 
 
 
 
 
-Getting to learn Circle CI
