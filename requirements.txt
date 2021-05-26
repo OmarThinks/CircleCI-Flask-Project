@@ -18,6 +18,8 @@ py==1.10.0
 pymongo==3.11.4
 pyparsing==2.4.7
 pytest==6.2.4
+pytest-html==3.1.1
+pytest-metadata==1.11.0
 pytz==2021.1
 sqlparse==0.2.4
 toml==0.10.2
