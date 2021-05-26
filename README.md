@@ -55,6 +55,9 @@ Just make sure that you ahve installed
 **pytest** and **pytest-html**
 
 
+### 4) .circleci/config.yml:
+This file contains that confiurations of CircleCi
+
 
 
 
