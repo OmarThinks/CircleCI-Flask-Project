@@ -29,4 +29,36 @@ python app.py
 
 
 
+### 3) src/test_.py:
+This file contains the test of the application  
+To run this file using CLI type this command:
+
+<b>
+
+```bash
+python test_.py
+```
+</b>
+
+
+
+To run Using **pytest** and **pytest-html**:
+
+<b>
+
+```bash
+pytest --junitxml=test-reports/junit.xml --html=test-reports/pytest_report.html --self-contained-html
+```
+</b>
+
+Just make sure that you ahve installed 
+**pytest** and **pytest-html**
+
+
+
+
+
+
+
+
 
