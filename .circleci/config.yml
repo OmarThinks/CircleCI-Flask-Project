@@ -22,7 +22,7 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 workflows:
-  build_test:
+  build_test_on_cron:
     triggers:
       - schedule:
           cron: "0 * * * *"
@@ -30,6 +30,13 @@ workflows:
             branches:
               only:
                 - master
+    jobs:
+      - run_tests
+      - welcome/run
+      - welcome/run:
+          requires:
+            - run_tests
+  build_test_on_push:
     jobs:
       - run_tests
       - welcome/run
