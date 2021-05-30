@@ -23,6 +23,13 @@ orbs:
   welcome: circleci/welcome-orb@0.4.1
 
 workflows:
+  triggers:
+    - schedule:
+      cron: "0-59 * * * *"
+      filters:
+        branches:
+          only:
+            - master
   build_test:
     jobs:
       - run_tests
