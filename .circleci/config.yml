@@ -34,7 +34,7 @@ workflows:
       - run_tests
       - welcome/run
       - welcome/run:
-        - parameters:
+        parameters:
           requires:
             - run_tests
   build_test_on_push:
