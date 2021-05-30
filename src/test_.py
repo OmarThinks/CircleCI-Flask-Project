@@ -14,7 +14,7 @@ class CITestCase(unittest.TestCase):
         response = self.client().get("/")
         self.assertEqual(response.status_code,200)
         data = json.loads(response.data)
-        self.assertEqual(data["success"],True)
+        self.assertEqual(data["success"],False)
 
 
 # Make the tests conveniently executable
