@@ -26,7 +26,6 @@ workflows:
   build_test:
     jobs:
       - run_tests
-      - welcome/run
       - welcome/run:
         requires:
           - run_tests
