@@ -26,11 +26,11 @@ workflows:
   build_test:
     triggers:
       - schedule:
-        cron: "0-59 * * * *"
-        filters:
-          branches:
-            only:
-              - master
+          cron: "0-59 * * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - run_tests
       - welcome/run
