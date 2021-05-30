@@ -21,7 +21,6 @@ jobs:
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
-
 workflows:
   build_test:
     triggers:
