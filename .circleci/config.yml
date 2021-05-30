@@ -25,7 +25,6 @@ workflows:
   build_test_on_cron:
     triggers:
       - schedule:
-        parameters:
           cron: "0 * * * *"
           filters:
             branches:
