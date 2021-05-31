@@ -27,7 +27,7 @@ workflows:
       - run_tests
       - welcome/run
       - welcome/run:
-          requires: any error
+          requires:
             - run_tests
   build_test_on_cron:
     triggers:
