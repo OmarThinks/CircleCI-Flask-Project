@@ -27,7 +27,6 @@ workflows:
       - build_and_test
       - welcome/run
       - welcome/run:
-        parameters:
           requires:
             - build_and_test
   build_test_on_cron:
@@ -42,6 +41,5 @@ workflows:
       - build_and_test
       - welcome/run
       - welcome/run:
-        parameters:
           requires:
             - build_and_test
