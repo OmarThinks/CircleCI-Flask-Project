@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  run_tests:
+  build:
     docker:
       - image: circleci/python:3.7.4
     steps:
@@ -10,6 +10,8 @@ jobs:
           command: |
             echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV && source $BASH_ENV
             pip install --user -r requirements.txt
+  test:
+    steps:
       - run:
           name: Run unit tests
           command: |
@@ -24,11 +26,15 @@ orbs:
 workflows:
   build_test_on_push:
     jobs:
-      - run_tests
+      - build
+      - test:
+          requires:
+            build
       - welcome/run
       - welcome/run:
+        parameters:
           requires:
-            - run_tests
+            - test
   build_test_on_cron:
     triggers:
       - schedule:
@@ -38,9 +44,12 @@ workflows:
               only:
                 - master
     jobs:
-      - run_tests
+      - build
+      - test:
+          requires:
+            build
       - welcome/run
       - welcome/run:
         parameters:
           requires:
-            - run_tests
+            - test
