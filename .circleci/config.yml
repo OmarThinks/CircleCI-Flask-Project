@@ -12,6 +12,7 @@ jobs:
             pip install --user -r requirements.txt
   test:
     steps:
+      - checkout
       - run:
           name: Run unit tests
           command: |
@@ -29,7 +30,7 @@ workflows:
       - build
       - test:
           requires:
-            build
+            - build
       - welcome/run
       - welcome/run:
         parameters:
@@ -47,7 +48,7 @@ workflows:
       - build
       - test:
           requires:
-            build
+            - build
       - welcome/run
       - welcome/run:
         parameters:
