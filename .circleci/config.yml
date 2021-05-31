@@ -29,7 +29,7 @@ workflows:
       - welcome/run:
         parameters:
           requires:
-            - test
+            - build_and_test
   build_test_on_cron:
     triggers:
       - schedule:
@@ -44,4 +44,4 @@ workflows:
       - welcome/run:
         parameters:
           requires:
-            - test
+            - build_and_test
