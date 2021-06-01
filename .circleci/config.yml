@@ -37,6 +37,11 @@ jobs:
             echo "${message}" # Prints "*************"
             echo $message # Prints "*************"
             echo ${message} # Prints "*************"
+    
+  welcome1:
+    docker:
+      - image: circleci/welcome-orb@0.4.1
+
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
@@ -46,6 +51,7 @@ workflows:
       - build_and_test
       - trying_env_vars
       - welcome/run
+      - welcome1/run
       - welcome/run:
           requires:
             - build_and_test
