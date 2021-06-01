@@ -25,6 +25,8 @@ jobs:
       - run:
           name: Testing Env Vars
           command: |
+            echo "$message"
+            echo "${message}"
             echo '$message'
             echo '${message}'
             echo $message
