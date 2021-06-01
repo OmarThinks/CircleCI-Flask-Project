@@ -50,8 +50,8 @@ workflows:
   build_test_on_push:
     jobs:
       - build_and_test
-      - trying_env_vars
-      - welcome/run
+      - trying_env_vars:
+          p1: "Changed the parameter"
       - welcome/run:
           requires:
             - build_and_test
@@ -65,7 +65,8 @@ workflows:
                 - master
     jobs:
       - build_and_test
-      - trying_env_vars
+      - trying_env_vars:
+          p1: "Changed the parameter"
       - welcome/run
       - welcome/run:
           requires:
