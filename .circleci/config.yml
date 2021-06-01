@@ -26,6 +26,7 @@ jobs:
           name: Testing Env Vars
           command: |
             echo '$message'
+            echo '${message}'
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
