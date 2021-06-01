@@ -1,9 +1,16 @@
 version: 2.1
 
+
+
+
 executors:
   the_python_executor:
     docker:
       - image: circleci/python:3.7.4
+
+
+
+
 
 commands:
   build_and_test_commands:
@@ -23,17 +30,7 @@ commands:
       - store_artifacts:
           path: test-reports    
 
-
-
-
-
-jobs:
-  build_and_test:
-    executor: the_python_executor
-    steps:
-      - build_and_test_commands
-  trying_env_vars:
-    executor: the_python_executor
+  test_env_variables_commands:
     parameters:
       p1:
         type: string
@@ -50,9 +47,30 @@ jobs:
             echo ${message} # Prints "*************"
             echo "<< parameters.p1 >>"
 
+
+
+jobs:
+  build_and_test:
+    executor: the_python_executor
+    steps:
+      - build_and_test_commands
+  trying_env_vars:
+    executor: the_python_executor
+    parameters:
+      p1:
+        type: string
+        default: "Passing a Parameter"
+    steps:
+      - test_env_variables_commands:
+          p1: << parameters.p1 >>
+
+
+
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
+
+
 
 workflows:
   build_test_on_push:
