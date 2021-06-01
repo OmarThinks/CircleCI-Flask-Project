@@ -5,10 +5,8 @@ executors:
     docker:
       - image: circleci/python:3.7.4
 
-
-jobs:
-  build_and_test:
-    executor: the_python_executor
+commands:
+  build_and_test_commands:
     steps:
       - checkout
       - run:
@@ -23,7 +21,17 @@ jobs:
       - store_test_results:
           path: test-reports
       - store_artifacts:
-          path: test-reports
+          path: test-reports    
+
+
+
+
+
+jobs:
+  build_and_test:
+    executor: the_python_executor
+    steps:
+      - build_and_test_commands
   trying_env_vars:
     executor: the_python_executor
     parameters:
