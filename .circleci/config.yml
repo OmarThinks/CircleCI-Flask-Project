@@ -9,10 +9,6 @@ executors:
 jobs:
   build_and_test:
     executor: the_python_executor
-    parameters:
-      p1:
-        type: string
-        default: "Passing a Parameter"
     steps:
       - checkout
       - run:
@@ -30,6 +26,10 @@ jobs:
           path: test-reports
   trying_env_vars:
     executor: the_python_executor
+    parameters:
+      p1:
+        type: string
+        default: "Passing a Parameter"
     steps:
       - run:
           name: Testing Env Vars
@@ -40,6 +40,7 @@ jobs:
             echo "${message}" # Prints "*************"
             echo $message # Prints "*************"
             echo ${message} # Prints "*************"
+            echo "<< parameters.p1 >>"
 
 orbs:
   # Declare a dependency on the welcome-orb
