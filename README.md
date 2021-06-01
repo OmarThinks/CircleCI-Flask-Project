@@ -18,11 +18,15 @@ Flask, pytest, and pytest-html
 
 ### 2) src/app.py:
 This file contains the flask application  
-To run this file using CLI type this command:
 
+There are 2 ways to run the application:
+1. Open this file: **`src/app.sh`**
+
+2. using CLI type these commands
 <b>
 
 ```bash
+export message="Hello, World!"
 python app.py
 ```
 </b>
@@ -33,9 +37,17 @@ python app.py
 This file contains the test of the application  
 To run this file using CLI type this command:
 
+
+There are 2 ways to test the application:
+
+1. Open this file: **`src/test.sh`**
+
+2. using CLI type these commands
+
 <b>
 
 ```bash
+export message="Hello, World!"
 python test_.py
 ```
 </b>
