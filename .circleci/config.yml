@@ -25,12 +25,12 @@ jobs:
       - run:
           name: Testing Env Vars
           command: |
-            echo "$message"
-            echo "${message}"
-            echo '$message'
-            echo '${message}'
-            echo $message
-            echo ${message}
+            echo '$message' # Prints "$message"
+            echo '${message}' # Prints "${message}"
+            echo "$message" # Prints "*************"
+            echo "${message}" # Prints "*************"
+            echo $message # Prints "*************"
+            echo ${message} # Prints "*************"
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
