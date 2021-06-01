@@ -8,8 +8,7 @@ executors:
 
 jobs:
   build_and_test:
-    docker:
-      - image: circleci/python:3.7.4
+    executor: the_python_executor
     steps:
       - checkout
       - run:
