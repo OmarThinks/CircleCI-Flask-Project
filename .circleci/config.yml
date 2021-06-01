@@ -23,9 +23,9 @@ jobs:
       - image: circleci/python:3.7.4
     steps:
       - run:
-        name: Testing Env Vars
-        command: |
-          echo'$message'
+          name: Testing Env Vars
+          command: |
+            echo'$message'
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
