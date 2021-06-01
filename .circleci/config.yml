@@ -52,6 +52,7 @@ workflows:
       - build_and_test
       - trying_env_vars:
           p1: "Changed the parameter"
+      - welcome/run
       - welcome/run:
           requires:
             - build_and_test
