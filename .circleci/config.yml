@@ -25,8 +25,7 @@ jobs:
       - store_artifacts:
           path: test-reports
   trying_env_vars:
-    docker:
-      - image: circleci/python:3.7.4
+    executor: the_python_executor
     steps:
       - run:
           name: Testing Env Vars
@@ -37,21 +36,17 @@ jobs:
             echo "${message}" # Prints "*************"
             echo $message # Prints "*************"
             echo ${message} # Prints "*************"
-    
-  welcome1:
-    docker:
-      - image: circleci/welcome-orb@0.4.1
 
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
+
 workflows:
   build_test_on_push:
     jobs:
       - build_and_test
       - trying_env_vars
       - welcome/run
-      - welcome1/run
       - welcome/run:
           requires:
             - build_and_test
