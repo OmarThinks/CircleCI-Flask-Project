@@ -59,16 +59,17 @@ To run Using **pytest** and **pytest-html**:
 <b>
 
 ```bash
+export message="Hello, World!"
 pytest
 ```
 </b>
 
-Just make sure that you ahve installed 
+Just make sure that you have installed 
 **pytest** and **pytest-html**
 
 
 ### 4) .circleci/config.yml:
-This file contains that confiurations of CircleCi
+This file contains that configurations of CircleCi
 
 
 
@@ -87,6 +88,123 @@ When running using pytest, the testing results will be printed in this directory
 
 
 In CircleCI, they will be artifacts.
+
+
+
+
+
+
+
+# Explainging CircleCi confihuraion file:
+
+
+This is the code inside the file:
+
+
+
+<b>
+
+
+```yml
+version: 2.1
+
+executors:
+  the_python_executor:
+    docker:
+      - image: circleci/python:3.7.4
+
+
+commands:
+  build_and_test_commands:
+    steps:
+      - checkout
+      - run:
+          name: Install Python dependencies
+          command: |
+            echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV && source $BASH_ENV
+            pip install --user -r requirements.txt
+      - run:
+          name: Run unit tests
+          command: |
+            pytest -rP --junitxml=test-reports/junit.xml --html=test-reports/pytest_report.html --self-contained-html --cov --cov-report=html:test-reports/pytest_cov_report
+      - store_test_results:
+          path: test-reports
+      - store_artifacts:
+          path: test-reports    
+
+  test_env_variables_commands:
+    parameters:
+      p1:
+        type: string
+        default: "Passing a Parameter"
+    steps:
+      - run:
+          name: Testing Env Vars
+          command: |
+            echo '$message' # Prints "$message"
+            echo '${message}' # Prints "${message}"
+            echo "$message" # Prints "*************"
+            echo "${message}" # Prints "*************"
+            echo $message # Prints "*************"
+            echo ${message} # Prints "*************"
+            echo "<< parameters.p1 >>"
+
+
+jobs:
+  build_and_test:
+    executor: the_python_executor
+    steps:
+      - build_and_test_commands
+
+  trying_env_vars:
+    executor: the_python_executor
+    parameters:
+      p1:
+        type: string
+        default: "Passing a Parameter"
+    steps:
+      - test_env_variables_commands:
+          p1: << parameters.p1 >>
+
+
+orbs:
+  # Declare a dependency on the welcome-orb
+  welcome: circleci/welcome-orb@0.4.1
+
+
+workflows:
+  build_test_on_push:
+    jobs:
+      - build_and_test
+      - trying_env_vars:
+          p1: "Changed the parameter"
+      - welcome/run
+      - welcome/run:
+          requires:
+            - build_and_test
+
+  build_test_on_cron:
+    triggers:
+      - schedule:
+          cron: "1 1 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build_and_test
+      - trying_env_vars:
+          p1: "Changed the parameter"
+      - welcome/run
+      - welcome/run:
+          requires:
+            - build_and_test
+```
+</b>
+
+
+
+
 
 
 
