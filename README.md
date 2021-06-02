@@ -256,7 +256,9 @@ Predefined jobs
 
 ## Section 6: Workflows:
 
-The final product of the circleci Configuration file
+The final product of the circleci Configuration file.  
+The workflow has a cronjob.  
+It will run every day, to make sure that everything is working.
 
 
 
