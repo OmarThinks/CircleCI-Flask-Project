@@ -1,4 +1,4 @@
-Flask
-pytest
-pytest-html
-pytest-cov
+Flask==2.0.1
+pytest==6.2.4
+pytest-cov==2.12.0
+pytest-html==3.1.1
