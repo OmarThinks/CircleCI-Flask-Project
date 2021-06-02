@@ -238,6 +238,27 @@ Commands have parameters.
 
 
 
+## Section 4: Jobs:
+
+This is what will be executed  in the workflow.
+
+
+
+
+
+## Section 5: Orbs:
+
+Predefined jobs
+
+
+
+
+
+## Section 6: Workflows:
+
+The final product of the circleci Configuration file
+
+
 
 
 
