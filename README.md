@@ -95,7 +95,7 @@ In CircleCI, they will be artifacts.
 
 
 
-# Explainging CircleCi confihuraion file:
+# Explainging CircleCi configuraion file:
 
 
 This is the code inside the file:
@@ -106,6 +106,7 @@ This is the code inside the file:
 
 
 ```yml
+# Section 1
 version: 2.1
 
 executors:
@@ -114,6 +115,7 @@ executors:
       - image: circleci/python:3.7.4
 
 
+# Section 2
 commands:
   build_and_test_commands:
     steps:
@@ -150,6 +152,7 @@ commands:
             echo "<< parameters.p1 >>"
 
 
+# Section 3
 jobs:
   build_and_test:
     executor: the_python_executor
@@ -167,11 +170,13 @@ jobs:
           p1: << parameters.p1 >>
 
 
+# Section 4
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 
 
+# Section 5
 workflows:
   build_test_on_push:
     jobs:
@@ -201,6 +206,36 @@ workflows:
             - build_and_test
 ```
 </b>
+
+
+
+
+## Sesction 1: Version:
+
+This is the version of CircleCI config file.  
+The latest version is 2.  
+So we will use this version.  
+**Note:** There is lots of difference between version 1 and 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
