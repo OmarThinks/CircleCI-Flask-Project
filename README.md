@@ -109,13 +109,14 @@ This is the code inside the file:
 # Section 1
 version: 2.1
 
+# Section 3
 executors:
   the_python_executor:
     docker:
       - image: circleci/python:3.7.4
 
 
-# Section 2
+# Section 3
 commands:
   build_and_test_commands:
     steps:
@@ -152,7 +153,7 @@ commands:
             echo "<< parameters.p1 >>"
 
 
-# Section 3
+# Section 4
 jobs:
   build_and_test:
     executor: the_python_executor
@@ -170,13 +171,13 @@ jobs:
           p1: << parameters.p1 >>
 
 
-# Section 4
+# Section 5
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 
 
-# Section 5
+# Section 6
 workflows:
   build_test_on_push:
     jobs:
@@ -219,7 +220,16 @@ So we will use this version.
 
 
 
-## Section 2: Commands:
+## Section 2: Executors:
+
+Executors are the environment that the application will run inside.    
+Here we will run the application inside a Docker environment and the 
+main image is python.
+
+
+
+
+## Section 3: Commands:
 
 Commands are fixed steps that are repeated.  
 The commands are used in jobs.  
