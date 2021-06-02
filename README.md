@@ -210,12 +210,20 @@ workflows:
 
 
 
-## Sesction 1: Version:
+## Section 1: Version:
 
 This is the version of CircleCI config file.  
 The latest version is 2.  
 So we will use this version.  
 **Note:** There is lots of difference between version 1 and 2
+
+
+
+## Section 2: Commands:
+
+Commands are fixed steps that are repeated.  
+The commands are used in jobs.  
+Commands have parameters.  
 
 
 
