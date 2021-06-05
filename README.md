@@ -272,6 +272,35 @@ It will run every day, to make sure that everything is working.
 
 
 
+## When tests run:
+
+<b>
+
+```yml
+workflows:
+  build_test_on_push:
+    .
+    .
+    .
+  build_test_on_cron:
+    triggers:
+      - schedule:
+          cron: "1 1 1 * *"
+```
+
+
+</b>
+
+
+We have here 2 workflows:
+1. build_test_on_push:
+- This runs when there are chages pushed to the master branch
+1. build_test_on_cron:
+- This is a cron job
+- It runs monthly in the first day of the month, 
+at 1 AM, and 1 Minute
+
+
 
 
 

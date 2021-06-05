@@ -85,7 +85,7 @@ workflows:
   build_test_on_cron:
     triggers:
       - schedule:
-          cron: "1 1 * * *"
+          cron: "1 1 1 * *"
           filters:
             branches:
               only:
